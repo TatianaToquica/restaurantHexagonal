@@ -37,3 +37,4 @@ Burn-down chart Jira
 ## Documentación
 
 * **Documento:**  [UNISOFT RESTAURANTE ARQUITECTURA HEXAGONAL](https://drive.google.com/file/d/1DFz_QDoy98zb5SXmLsnuuAfeZ4hWomER/view?usp=sharing)
+* **Video de la app en ejecución:** [Video app](https://youtu.be/ewo5P2a-21U)
