@@ -35,6 +35,6 @@ Burn-down chart Jira
 ![Gráfica de trabajo pendiente en el sprint](https://i.imgur.com/ApzpK0e.png)
 
 ## Documentación
-El manual del desarrollador se encuentra en el siguiente documento.
+El manual del desarrollador se encuentra en el siguiente documento.Pág 26.
 * **Documento:**  [UNISOFT RESTAURANTE ARQUITECTURA HEXAGONAL](https://drive.google.com/file/d/1DFz_QDoy98zb5SXmLsnuuAfeZ4hWomER/view?usp=sharing)
 * **Video de la app en ejecución:** [Video app](https://youtu.be/ewo5P2a-21U)
