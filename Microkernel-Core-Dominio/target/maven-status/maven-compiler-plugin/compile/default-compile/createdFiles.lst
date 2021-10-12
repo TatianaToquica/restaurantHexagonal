@@ -1,0 +1,13 @@
+co\unicauca\microkernel\core\domain\ComponentRepository.class
+co\unicauca\microkernel\core\domain\UserRepository.class
+co\unicauca\microkernel\core\domain\IMenuDiaRepository.class
+co\unicauca\microkernel\core\domain\Factory.class
+co\unicauca\microkernel\core\domain\IDishRepository.class
+co\unicauca\microkernel\core\domain\RestaurantRepository.class
+co\unicauca\microkernel\core\domain\IUserRepository.class
+co\unicauca\microkernel\core\domain\DishRepository.class
+co\unicauca\microkernel\core\domain\IComponentRepository.class
+co\unicauca\microkernel\core\domain\MenuDiaRepository.class
+co\unicauca\microkernel\core\domain\MenuEspecialRepository.class
+co\unicauca\microkernel\core\domain\IRestaurantRepository.class
+co\unicauca\microkernel\core\domain\IMenuEspecialRepository.class
