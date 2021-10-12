@@ -5,19 +5,44 @@
  */
 package co.unicauca.microkernel.client.presentation;
 
+import co.unicauca.microkernel.client.access.IClienteAccess;
+import co.unicauca.microkernel.client.domain.ClienteService;
+import co.unicauca.microkernel.common.entities.Component;
+import co.unicauca.microkernel.common.entities.DayMenu;
+import co.unicauca.microkernel.common.entities.Restaurant;
+import java.util.List;
+
 /**
  *
  * @author Usuario
  */
 public class GUIMenuClient extends javax.swing.JFrame {
 
+    private IClienteAccess service;
+    private ClienteService serviceRest;
+    private Component componente;
+    private DayMenu menu;
+    private Restaurant restaurante;
+    private String loginName;
+    private List<Component> components;
+    private List<Component> componentsMenu;
+    String restName;
+    String LoginAdmin;
     /**
      * Creates new form GUIMenuClient
      */
     public GUIMenuClient() {
         initComponents();
+        restName= cbx_restaurante.getSelectedItem().toString();
+        //LoginAdmin = RecuperarAdminRest(String restName);
     }
-
+    private String RecuperarAdminRest(String restName){
+        String Login;
+        //necesito objeto restaurante
+        //saco datos de ese objeto y los fijo en la caja de texto
+        //saco el dato del userLoginName y lo retorno
+        return "alonsito";
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,17 +59,19 @@ public class GUIMenuClient extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txtDireccion = new javax.swing.JTextField();
         txtDescripComida = new javax.swing.JTextField();
-        cbx_restaurante = new javax.swing.JComboBox<>();
-        cbx_menu = new javax.swing.JComboBox<>();
-        cbx_opcMenuDia = new javax.swing.JComboBox<>();
-        txtListadoMenu = new javax.swing.JTextField();
         Btn_CerrarSesionClient = new javax.swing.JButton();
+        cbx_restaurante = new javax.swing.JComboBox<>();
+        btnMenuDia = new javax.swing.JButton();
+        btnMenuEspecial = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Menu Cliente");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 160, 30));
 
@@ -66,23 +93,45 @@ public class GUIMenuClient extends javax.swing.JFrame {
         getContentPane().add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 100, -1));
         getContentPane().add(txtDescripComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 120, 60));
 
-        cbx_restaurante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Restaurante La Deliciosa", "Restaurante Quieta Margarita", "Restaurante Terra Inca" }));
-        getContentPane().add(cbx_restaurante, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 150, -1));
-
-        cbx_menu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Menú del día", "Menú Especial" }));
-        getContentPane().add(cbx_menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
-
-        cbx_opcMenuDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Entrada", "Principio", "Proteina", "Bebida" }));
-        getContentPane().add(cbx_opcMenuDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, -1, -1));
-        getContentPane().add(txtListadoMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 200, 90));
-
+        Btn_CerrarSesionClient.setBackground(new java.awt.Color(0, 0, 255));
+        Btn_CerrarSesionClient.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
+        Btn_CerrarSesionClient.setForeground(new java.awt.Color(255, 255, 255));
         Btn_CerrarSesionClient.setText("Cerrar Sesión");
+        Btn_CerrarSesionClient.setBorder(null);
         Btn_CerrarSesionClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_CerrarSesionClientActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_CerrarSesionClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, -1, -1));
+        getContentPane().add(Btn_CerrarSesionClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 130, 30));
+
+        cbx_restaurante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Restaurante La Deliciosa", "Restaurante Quieta Margarita", "Restaurante Terra Inca" }));
+        getContentPane().add(cbx_restaurante, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 150, -1));
+
+        btnMenuDia.setBackground(new java.awt.Color(0, 0, 255));
+        btnMenuDia.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
+        btnMenuDia.setForeground(new java.awt.Color(255, 255, 255));
+        btnMenuDia.setText("Menu Dia");
+        btnMenuDia.setBorder(null);
+        btnMenuDia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuDiaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnMenuDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 300, 120, 30));
+
+        btnMenuEspecial.setBackground(new java.awt.Color(0, 0, 255));
+        btnMenuEspecial.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
+        btnMenuEspecial.setForeground(new java.awt.Color(255, 255, 255));
+        btnMenuEspecial.setText("Menu Especial");
+        btnMenuEspecial.setBorder(null);
+        getContentPane().add(btnMenuEspecial, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 140, 30));
+
+        jPanel2.setBackground(new java.awt.Color(0, 0, 255));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 60));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -93,6 +142,13 @@ public class GUIMenuClient extends javax.swing.JFrame {
         guiInicio.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Btn_CerrarSesionClientActionPerformed
+
+    private void btnMenuDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuDiaActionPerformed
+        GUIMostrarMenuDia guiMenu = new GUIMostrarMenuDia();
+        this.setVisible(false);
+        guiMenu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnMenuDiaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,17 +187,18 @@ public class GUIMenuClient extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_CerrarSesionClient;
-    private javax.swing.JComboBox<String> cbx_menu;
-    private javax.swing.JComboBox<String> cbx_opcMenuDia;
+    private javax.swing.JButton btnMenuDia;
+    private javax.swing.JButton btnMenuEspecial;
     private javax.swing.JComboBox<String> cbx_restaurante;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtDescripComida;
     private javax.swing.JTextField txtDireccion;
-    private javax.swing.JTextField txtListadoMenu;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -136,7 +136,7 @@ public class GUIMenuDia extends javax.swing.JFrame {
         });
         tblDataTodosComp.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         tblDataTodosComp.addMouseListener(new java.awt.event.MouseAdapter() {
-            
+           
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 tblDataTodosCompMousePressed(evt);
             }
@@ -201,6 +201,7 @@ public class GUIMenuDia extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 0, 255));
 
         jLabel2.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Menu Dia");
         jPanel2.add(jLabel2);
 

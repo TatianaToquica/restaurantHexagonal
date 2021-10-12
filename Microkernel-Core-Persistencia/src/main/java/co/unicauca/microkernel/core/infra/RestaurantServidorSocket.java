@@ -222,6 +222,9 @@ public class RestaurantServidorSocket implements Runnable{
                 if (protocolRequest.getAction().equals("postFindDish")) {
                     sistemaFindDish(protocolRequest);
                 }
+                if (protocolRequest.getAction().equals("postFindOwnerRest")) {
+                    sistemaFindRest(protocolRequest);
+                }
                                
                 
         }
@@ -452,4 +455,8 @@ public class RestaurantServidorSocket implements Runnable{
         response = serviceMenuDia.createMenuDia(menu);
         output.println(response);
     }    
+
+    private void sistemaFindRest(Protocol protocolRequest) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

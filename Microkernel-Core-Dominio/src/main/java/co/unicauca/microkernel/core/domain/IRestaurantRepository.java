@@ -19,4 +19,5 @@ public interface IRestaurantRepository {
      * @return 
      */
     public List<Restaurant> listAllRestaurant();
+    public Restaurant findPropietario(String prmrestName);
 }

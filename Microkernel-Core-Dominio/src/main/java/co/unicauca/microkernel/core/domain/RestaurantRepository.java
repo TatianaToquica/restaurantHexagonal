@@ -79,5 +79,29 @@ public class RestaurantRepository implements IRestaurantRepository {
         //TODO:
         return null;
     }
+
+    @Override
+    public Restaurant findPropietario(String prmrestName) {
+        Restaurant res = new Restaurant();
+        //String response="null";
+        System.out.println("Retornar Restaurante");
+        try{
+            this.connect();            
+            String sql = "SELECT resID, resName, resAddress, resDescFood, userLoginName FROM Restaurant WHERE resName=?";
+            PreparedStatement pstmt=conn.prepareStatement(sql);
+            pstmt.setString(1,prmrestName);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {      
+                Restaurant restaurante = new Restaurant(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5));
+                res=restaurante;
+            }
+            pstmt.close();
+            this.disconnect();
+        }catch (SQLException ex) {
+            Logger.getLogger(RestaurantRepository.class.getName()).log(Level.SEVERE, "Error al consultar el restaurante", ex);
+        }
+        //return response;
+        return res;
+    }
     
 }
